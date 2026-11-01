@@ -8,7 +8,7 @@ from PIL import Image
 
 from weekly import pick, render
 from weekly.cli import next_publish_date, publish_at
-from weekly.image import compose
+from weekly.image import beer_slide, compose
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = json.load(open(os.path.join(ROOT, "config.json")))
@@ -97,7 +97,13 @@ class ImageTests(unittest.TestCase):
         fake = lambda url: Image.new("RGB", (400, 600), "orange")
         with tempfile.TemporaryDirectory() as td:
             out = compose("A headline", ["a", "b", "c", "d", "e"], os.path.join(td, "x.png"), fetch=fake)
-            self.assertEqual(Image.open(out).size, (1080, 1350))
+            with Image.open(out) as im:
+                self.assertEqual(im.size, (1080, 1350))
+            beer = {"name": "A Very Long Brewery Name Hazy Non-Alcoholic IPA Special", "image": "x",
+                    "styles": ["Hazy IPA"], "price": "4.49"}
+            out = beer_slide(beer, 2, 5, os.path.join(td, "s.png"), fetch=fake)
+            with Image.open(out) as im:
+                self.assertEqual(im.size, (1080, 1350))
 
 
 if __name__ == "__main__":

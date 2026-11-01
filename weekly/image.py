@@ -106,3 +106,56 @@ def compose(headline, image_urls, out_path, footer="Shop at nabeermarket.com",
 
     img.save(out_path, "PNG", optimize=True)
     return out_path
+
+
+def beer_slide(beer, index, total, out_path, footer="Shop at nabeermarket.com", fetch=_fetch):
+    """One carousel slide per beer: big photo, name, style and price."""
+    img = Image.new("RGB", (W, H), CREAM)
+    d = ImageDraw.Draw(img)
+
+    # Photo panel
+    top, side, panel_h = 60, 60, 820
+    mask = Image.new("L", (W - 2 * side, panel_h), 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, W - 2 * side - 1, panel_h - 1], radius=28, fill=255)
+    try:
+        photo = ImageOps.fit(fetch(beer["image"]), (W - 2 * side, panel_h), centering=(0.5, 0.5))
+    except Exception as e:
+        print(f"warning: could not load {beer['image']}: {e}")
+        photo = Image.new("RGB", (W - 2 * side, panel_h), "white")
+    img.paste(photo, (side, top), mask)
+
+    # Counter chip
+    chip = _font(30)
+    label = f"{index}/{total}"
+    cw = d.textlength(label, font=chip) + 36
+    d.rounded_rectangle([W - side - cw - 20, top + 20, W - side - 20, top + 74], radius=27, fill=RED)
+    d.text((W - side - cw - 2, top + 30), label, font=chip, fill="white")
+
+    # Name (up to two lines), then style and price
+    y = top + panel_h + 36
+    size = 58
+    while size > 36:
+        nf = _font(size)
+        lines = _wrap(d, beer["name"], nf, W - 2 * side)
+        if len(lines) <= 2:
+            break
+        size -= 4
+    for ln in lines[:2]:
+        d.text((side, y), ln, font=nf, fill=INK)
+        y += size + 10
+    meta = ", ".join(beer.get("styles", [])[:2]) or "NA beer"
+    if beer.get("price"):
+        meta += f"  ·  ${float(beer['price']):.2f} a can"
+    d.text((side, y + 8), meta.upper(), font=_font(30), fill=RED)
+
+    # Footer
+    d.rectangle([0, H - 110, W, H], fill="white")
+    try:
+        logo = ImageOps.contain(Image.open(LOGO).convert("RGBA"), (170, 90))
+        img.paste(logo, (side, H - 110 + (110 - logo.height) // 2), logo)
+        fx = side + logo.width + 24
+    except OSError:
+        fx = side
+    d.text((fx, H - 74), footer, font=_font(32), fill=INK)
+    img.save(out_path, "PNG", optimize=True)
+    return out_path

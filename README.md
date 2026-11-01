@@ -58,7 +58,7 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
 ## Files
 
 - `weekly/`: the code (stdlib + Pillow).
-- `weeks/<date>/`: `plan.json` (picked beers), `copy.json` (the words), `na-beer-market-weekly-picks-<date>.png`,
+- `weeks/<date>/`: `plan.json` (picked beers), `copy.json` (the words), the cover image plus one `-slide<N>.png` per beer (posted as an Instagram/Facebook carousel),
   `preview.html`, and `out.json` (WordPress/Buffer ids and status). Committed every week as a record.
 - `state/featured.json`: which beers ran which week.
 - `assets/logo-market.png`: NA Beer Market logo for the social image.
@@ -70,3 +70,5 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
   them in `config.json → buffer.extra_input.instagram` without changing code.
 - The Market host returns 406 to Python's default User-Agent, so `weekly/http.py`
   sends a curl-like one.
+
+- `email/mailchimp-rss-template.html`: the HTML of the Mailchimp RSS campaign "NA Beer Market - Weekly Picks (RSS)" (sends Thursdays 11:00 ET when the feed has a new post).

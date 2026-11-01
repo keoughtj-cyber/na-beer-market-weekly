@@ -93,15 +93,20 @@ def cmd_draft(args):
     render.validate_copy(copy, plan)
     out = load_json(os.path.join(wd, "out.json"), {})
 
-    from .image import compose
+    from .image import beer_slide, compose
     img_path = os.path.join(wd, f"na-beer-market-weekly-picks-{date}.png")
     compose(copy["image_headline"], [b["image"] for b in plan["beers"]], img_path,
             footer=f"Shop at {cfg['display_domain']}")
+    slides = [img_path]
+    for i, b in enumerate(plan["beers"], 1):
+        sp = os.path.join(wd, f"na-beer-market-weekly-picks-{date}-slide{i}.png")
+        beer_slide(b, i, len(plan["beers"]), sp, footer=f"Shop at {cfg['display_domain']}")
+        slides.append(sp)
     body = render.build_post_html(plan, copy, cfg["cta"])
     with open(os.path.join(wd, "preview.html"), "w") as f:
         f.write(render.preview_page(copy["title"], body))
     if args.dry_run:
-        print(f"dry run: wrote {os.path.relpath(wd, ROOT)}/preview.html and the social image")
+        print(f"dry run: wrote {os.path.relpath(wd, ROOT)}/preview.html, the cover and {len(slides) - 1} beer slides")
         return
 
     from .market import Market
@@ -113,6 +118,12 @@ def cmd_draft(args):
         media = m.upload_media(img_path, f"{copy['image_headline']}: non-alcoholic beers at NA Beer Market",
                                f"Weekly picks {date}")
         out.update(media_id=media["id"], media_url=media["source_url"])
+    if len(out.get("media_urls") or []) != len(slides):
+        urls, ids = [out["media_url"]], [out["media_id"]]
+        for b, sp in zip(plan["beers"], slides[1:]):
+            media = m.upload_media(sp, f"{b['name']} non-alcoholic beer", f"Weekly picks {date}: {b['name']}")
+            urls.append(media["source_url"]); ids.append(media["id"])
+        out.update(media_urls=urls, slide_media_ids=ids[1:])
     fields = {
         "title": copy["title"], "content": body, "excerpt": copy["excerpt"],
         "status": "draft", "categories": [cat], "featured_media": out["media_id"],
@@ -166,7 +177,7 @@ def cmd_publish(args):
     for service, cid in channels.items():
         if service in out["buffer"]:
             continue
-        p = buf.create_post(cid, texts.get(service, texts["facebook"]), out["media_url"],
+        p = buf.create_post(cid, texts.get(service, texts["facebook"]), out.get("media_urls") or [out["media_url"]],
                             social_utc, (cfg["buffer"].get("extra_input") or {}).get(service))
         out["buffer"][service] = p
         save_json(os.path.join(wd, "out.json"), out)
@@ -194,7 +205,7 @@ def cmd_buffer_test(args):
     for service, cid in buf.resolve_channels(cfg).items():
         if args.only and service != args.only:
             continue
-        p = buf.create_post(cid, "[TEST DRAFT] " + texts[service], out["media_url"], draft=True,
+        p = buf.create_post(cid, "[TEST DRAFT] " + texts[service], out.get("media_urls") or [out["media_url"]], draft=True,
                             extra=(cfg["buffer"].get("extra_input") or {}).get(service))
         print(f"{service}: draft {p['id']} status={p['status']}")
 

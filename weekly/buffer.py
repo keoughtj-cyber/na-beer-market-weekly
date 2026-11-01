@@ -47,14 +47,14 @@ class Buffer:
             raise SystemExit(f"No connected Buffer channel for: {', '.join(missing)}")
         return ids
 
-    def create_post(self, channel_id, text, image_url, due_at_iso=None, extra=None, draft=False):
+    def create_post(self, channel_id, text, image_urls, due_at_iso=None, extra=None, draft=False):
         """Schedule a post for due_at_iso, or with draft=True save it as a Buffer
         draft that never publishes until someone schedules it in Buffer."""
         payload = {
             "channelId": channel_id,
             "text": text,
             "schedulingType": "automatic",
-            "assets": [{"image": {"url": image_url}}],
+            "assets": [{"image": {"url": u}} for u in image_urls][:10],  # carousel, max 10
         }
         if draft:
             payload.update(mode="addToQueue", saveToDraft=True)
