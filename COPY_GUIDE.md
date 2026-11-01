@@ -12,6 +12,14 @@ non-alcoholic, so never imply otherwise and never call a beer "alcohol-free" unl
 the product says 0.0%. Make no health claims. Base facts only on the product
 description: no invented awards, ABVs or tasting notes.
 
+## Selling without pushing
+
+The goal is orders. Make each beer sound worth trying now. Name a specific occasion this week (game day, a holiday, the weekend). Use real urgency only, such as low stock (`stock_quantity` < 15) or a limited or seasonal release. Never invent discounts, deadlines or scarcity.
+- End the intro and outro with a clear next step: build your own 12-pack, or shop the picks.
+- Market copy is about choice: you pick, we guide. **Never contrast the Market with subscriptions**, and never knock subscriptions. The outro may add one soft line pointing to NA Beer Club for people who'd rather have the club pick for them.
+- Write for adults aged about 35 to 65 who research before buying. Be knowledgeable and warm, like a friendly cicerone, with no slang. Facebook matters as much as Instagram for this audience.
+- Don't use recovery or sobriety framing, and don't make health claims.
+
 ## Fields
 
 | Field | Notes |
@@ -21,7 +29,7 @@ description: no invented awards, ABVs or tasting notes.
 | `excerpt` | 1 to 2 sentences. Used by the post listing and the Mailchimp RSS email. |
 | `image_headline` | Up to about 28 characters so it fits on one or two lines of the image. |
 | `intro` | 2 short paragraphs (blank line between). Hook first, then "here are N…". |
-| `blurbs` | `{ "<product id>": "2 to 3 sentences" }` for every beer in plan.json. Mention low stock if `stock_quantity` < 15. |
+| `blurbs` | `{ "<product id>": "2 to 3 sentences" }` for every beer in plan.json. Cover what it tastes like, one line on the brewery or what makes it different, and when to drink it (a meal, an occasion, a time of year). Mention low stock if `stock_quantity` < 15. |
 | `outro` | 1 to 2 sentences ending on the Build Your Own 12-Pack. Free shipping to all 50 states. When naming the store in text, use **nabeermarket.com**. |
 | `instagram_caption` | Under 2,200 characters. Links don't work, so name the site as **nabeermarket.com** and say "link in bio". One line per beer with an emoji is fine. 4 to 6 hashtags at the end: #nabeer #nonalcoholicbeer #craftnabeer #sobercurious #nabeerclub. |
 | `facebook_caption` | 1 to 3 sentences and **must contain `{url}`**, which is replaced by the post link. |

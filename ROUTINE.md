@@ -9,7 +9,7 @@ Work in a clone of this repo on `main`. Secrets come from the environment
 
 1. `pip install -r requirements.txt`, then `python -m unittest discover -s tests`.
    If tests fail, stop and skip the week (step 8).
-2. Work out the date: the coming Thursday (`python -m weekly pick` uses it by default).
+2. Work out the date: the coming Thursday, or the holiday override in config.json (`python -m weekly pick` handles both by default, and `plan.json` records the date).
    If `weeks/<date>/out.json` already says `"status": "scheduled"`, the week is
    done, so stop. If it says `"draft"`, go straight to step 5.
 3. `python -m weekly pick`. If it exits with "only N eligible beers", rerun once
@@ -22,8 +22,8 @@ Work in a clone of this repo on `main`. Secrets come from the environment
    open `weeks/<date>/<image>.png` and `preview.html` and check them yourself:
    correct beers, no broken images, nothing off-brand. Fix and rerun if needed.
 6. `python -m weekly publish --date <date> --approved-by auto-routine`.
-   This schedules the WordPress post for Thursday 10:00 ET and the Buffer posts
-   for 10:15 ET. Mailchimp's RSS campaign emails the post on its own.
+   This schedules the WordPress post for 10:00 ET on that date and the Buffer
+   carousel for 12:00 ET. Mailchimp's RSS campaign emails the post on its own.
 7. Commit `weeks/<date>/` and `state/featured.json` to `main` with the message
    "Weekly picks <date>: <theme label>" and push.
 8. Skipping a week: delete nothing, publish nothing. Write `weeks/<date>/SKIPPED.md`

@@ -17,7 +17,9 @@ rather than publishing something half-made.
 |---|---|
 | Monday | A scheduled Claude session follows [ROUTINE.md](ROUTINE.md): `pick`, write `copy.json` per [COPY_GUIDE.md](COPY_GUIDE.md), `draft`, self-check, then `publish`. |
 | Thursday 10:00 ET | WordPress publishes the post. |
-| Thursday 10:15 ET | Buffer posts to Instagram and Facebook. Mailchimp RSS emails the post. |
+| Thursday 11:00 ET | Mailchimp RSS emails the post. |
+| Thursday 12:00 ET | Buffer posts the carousel to Instagram and Facebook (orders peak around noon and 5pm ET). |
+| Holiday weeks | `config.json → date_overrides` moves a week: Thanksgiving, Christmas Eve and New Year's Eve Thursdays move to the Tuesday before. Mailchimp RSS checks Tuesdays and Thursdays, so the email follows. |
 | Any check fails | Nothing is published, and `weeks/<date>/SKIPPED.md` records why. |
 
 ## Commands
@@ -33,7 +35,7 @@ python -m weekly buffer-test --date 2026-11-05                       # save the 
 python -m unittest discover -s tests
 ```
 
-`--date` is the Thursday the week goes live. `--dry-run` renders locally and never
+`--date` is the day the week goes live (normally Thursday). `--dry-run` renders locally and never
 writes to WordPress or Buffer.
 
 ## How beers are picked
@@ -71,4 +73,4 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
 - The Market host returns 406 to Python's default User-Agent, so `weekly/http.py`
   sends a curl-like one.
 
-- `email/mailchimp-rss-template.html`: the HTML of the Mailchimp RSS campaign "NA Beer Market - Weekly Picks (RSS)" (sends Thursdays 11:00 ET when the feed has a new post).
+- `email/mailchimp-rss-template.html`: the HTML of the Mailchimp RSS campaign "NA Beer Market - Weekly Picks (RSS)" (checks Tuesdays and Thursdays 11:00 ET and sends only when the feed has a new post).

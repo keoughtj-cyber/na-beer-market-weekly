@@ -5,7 +5,7 @@
   python -m weekly publish --date YYYY-MM-DD --approved-by NAME [--dry-run]
   python -m weekly buffer-channels
 
---date is the Thursday the week goes live (defaults to the next one).
+--date is the day the week goes live (defaults to the next Thursday, or its holiday override).
 Nothing here publishes without `publish --approved-by`, and even then the post
 is *scheduled* for the configured day and time, not pushed out immediately.
 """
@@ -48,12 +48,25 @@ def next_publish_date(cfg, today=None):
     today = today or dt.datetime.now(ZoneInfo(cfg["timezone"])).date()
     target = WEEKDAYS.index(cfg["publish_weekday"])
     days = (target - today.weekday()) % 7 or 7
-    return today + dt.timedelta(days=days)
+    date = today + dt.timedelta(days=days)
+    # Holiday weeks can move (e.g. Thanksgiving Thursday -> the Tuesday before).
+    moved = (cfg.get("date_overrides") or {}).get(date.isoformat())
+    return dt.date.fromisoformat(moved) if moved else date
+
+
+def _at(cfg, date, hhmm):
+    h, m = map(int, hhmm.split(":"))
+    return dt.datetime.combine(date, dt.time(h, m), ZoneInfo(cfg["timezone"]))
 
 
 def publish_at(cfg, date):
-    h, m = map(int, cfg["publish_time"].split(":"))
-    return dt.datetime.combine(date, dt.time(h, m), ZoneInfo(cfg["timezone"]))
+    return _at(cfg, date, cfg["publish_time"])
+
+
+def social_at(cfg, date):
+    """Socials go out at the configured time, never before the post is live."""
+    return max(_at(cfg, date, cfg.get("social_time", cfg["publish_time"])),
+               publish_at(cfg, date) + SOCIAL_DELAY)
 
 
 def week_dir(date):
@@ -75,6 +88,7 @@ def cmd_pick(args):
     plan = {
         "date": date.isoformat(),
         "publish_at": publish_at(cfg, date).isoformat(),
+        "social_at": social_at(cfg, date).isoformat(),
         "theme": theme,
         "theme_label": label,
         "beers": [picker.summarize(p) for p in chosen],
@@ -152,7 +166,7 @@ def cmd_publish(args):
     if when <= dt.datetime.now(dt.timezone.utc) + dt.timedelta(minutes=10):
         raise SystemExit(f"publish time {when} has passed; pick a new --date")
     when_utc = when.astimezone(dt.timezone.utc)
-    social_utc = (when_utc + SOCIAL_DELAY).strftime("%Y-%m-%dT%H:%M:%SZ")
+    social_utc = social_at(cfg, date).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     if args.dry_run:
         print(f"dry run: would schedule post {out['post_id']} for {when} "

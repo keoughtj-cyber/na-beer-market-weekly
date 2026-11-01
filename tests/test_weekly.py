@@ -7,7 +7,7 @@ import unittest
 from PIL import Image
 
 from weekly import pick, render
-from weekly.cli import next_publish_date, publish_at
+from weekly.cli import next_publish_date, publish_at, social_at
 from weekly.image import beer_slide, compose
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,6 +90,13 @@ class ScheduleTests(unittest.TestCase):
         self.assertEqual(d, dt.date(2026, 11, 5))
         self.assertEqual(next_publish_date(CFG, dt.date(2026, 11, 5)), dt.date(2026, 11, 12))
         self.assertEqual(publish_at(CFG, d).isoformat(), "2026-11-05T10:00:00-05:00")
+        self.assertEqual(social_at(CFG, d).isoformat(), "2026-11-05T12:00:00-05:00")
+
+    def test_holiday_overrides(self):
+        self.assertEqual(next_publish_date(CFG, dt.date(2026, 11, 23)), dt.date(2026, 11, 24))
+        self.assertEqual(next_publish_date(CFG, dt.date(2026, 12, 21)), dt.date(2026, 12, 22))
+        self.assertEqual(next_publish_date(CFG, dt.date(2026, 12, 28)), dt.date(2026, 12, 29))
+        self.assertEqual(pick.theme_for(dt.date(2026, 11, 24), CFG)[1], "Thanksgiving table")
 
 
 class ImageTests(unittest.TestCase):
