@@ -1,5 +1,6 @@
 {
   "market_base": "https://market.nabeerclub.com",
+  "display_domain": "nabeermarket.com",
   "timezone": "America/New_York",
   "publish_weekday": "thursday",
   "publish_time": "10:00",

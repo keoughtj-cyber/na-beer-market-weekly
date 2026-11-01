@@ -95,7 +95,8 @@ def cmd_draft(args):
 
     from .image import compose
     img_path = os.path.join(wd, f"na-beer-market-weekly-picks-{date}.png")
-    compose(copy["image_headline"], [b["image"] for b in plan["beers"]], img_path)
+    compose(copy["image_headline"], [b["image"] for b in plan["beers"]], img_path,
+            footer=f"Shop at {cfg['display_domain']}")
     body = render.build_post_html(plan, copy, cfg["cta"])
     with open(os.path.join(wd, "preview.html"), "w") as f:
         f.write(render.preview_page(copy["title"], body))

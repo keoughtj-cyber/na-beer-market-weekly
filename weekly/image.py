@@ -44,7 +44,7 @@ def _wrap(draw, text, font, width):
     return lines + [line] if line else lines
 
 
-def compose(headline, image_urls, out_path, footer="Shop at market.nabeerclub.com",
+def compose(headline, image_urls, out_path, footer="Shop at nabeermarket.com",
             fetch=_fetch):
     img = Image.new("RGB", (W, H), CREAM)
     d = ImageDraw.Draw(img)
