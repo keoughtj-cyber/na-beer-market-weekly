@@ -67,7 +67,7 @@ class RenderTests(unittest.TestCase):
         self.assertIn("Nice &amp; crisp", out)
         self.assertIn('href="https://m/7/"', out)
         self.assertIn(CFG["cta"]["url"], out)
-        self.assertEqual(out.count("<!-- wp:paragraph -->"), 5)
+        self.assertEqual(out.count("<p style="), 5)
 
     def test_validate_catches_missing_blurb_and_url(self):
         bad = dict(self.copy, blurbs={})

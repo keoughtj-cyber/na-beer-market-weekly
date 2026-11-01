@@ -23,48 +23,64 @@ def validate_copy(copy, plan):
         raise SystemExit("instagram_caption is over Instagram's 2,200 character limit")
 
 
-def _paras(text):
+RED = "#A1140F"
+NAVY = "#0C192F"
+# The Market runs Divi, which doesn't load the block editor's CSS, so every
+# spacing and style rule is inline here rather than relying on block classes.
+P_STYLE = "margin:0 0 1.2em;line-height:1.7;font-size:17px"
+
+
+def _paras(text, style=P_STYLE):
     out = []
     for chunk in text.strip().split("\n\n"):
         chunk = html.escape(chunk.strip()).replace("\n", "<br>")
         if chunk:
-            out.append(f"<!-- wp:paragraph -->\n<p>{chunk}</p>\n<!-- /wp:paragraph -->")
+            out.append(f'<p style="{style}">{chunk}</p>')
     return out
 
 
 def _button(text, url):
     return (
-        "<!-- wp:buttons -->\n<div class=\"wp-block-buttons\"><!-- wp:button -->\n"
-        f"<div class=\"wp-block-button\"><a class=\"wp-block-button__link wp-element-button\" "
-        f"href=\"{html.escape(url, quote=True)}\">{html.escape(text)}</a></div>\n"
-        "<!-- /wp:button --></div>\n<!-- /wp:buttons -->"
+        f'<a href="{html.escape(url, quote=True)}" style="display:inline-block;background:{RED};'
+        "color:#fff;padding:12px 26px;border-radius:6px;font-weight:700;text-decoration:none;"
+        f'letter-spacing:.02em">{html.escape(text)}</a>'
+    )
+
+
+def _html_block(inner):
+    return f"<!-- wp:html -->\n{inner}\n<!-- /wp:html -->"
+
+
+def _beer_card(b, blurb):
+    url = html.escape(b["permalink"], quote=True)
+    name = html.escape(b["name"])
+    style = html.escape(", ".join(b["styles"][:2])) if b["styles"] else "NA beer"
+    price = f" &middot; ${float(b['price']):.2f} a can" if b.get("price") else ""
+    body = "".join(_paras(blurb))
+    return _html_block(
+        '<div style="display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start;'
+        'padding:36px 0;border-top:1px solid #e6ded0">'
+        f'<a href="{url}" style="flex:0 0 220px;max-width:100%">'
+        f'<img src="{html.escape(b["image"], quote=True)}" alt="{name} non-alcoholic beer" '
+        'style="width:220px;max-width:100%;height:auto;border-radius:10px;display:block"></a>'
+        '<div style="flex:1 1 300px;min-width:0">'
+        f'<h2 style="margin:0 0 .35em;font-size:26px;line-height:1.25;padding:0">'
+        f'<a href="{url}" style="color:{NAVY};text-decoration:none">{name}</a></h2>'
+        f'<p style="margin:0 0 1em;font-size:14px;font-weight:700;letter-spacing:.06em;'
+        f'text-transform:uppercase;color:{RED}">{style}{price}</p>'
+        f"{body}{_button('Shop this beer', b['permalink'])}"
+        "</div></div>"
     )
 
 
 def build_post_html(plan, copy, cta):
-    blocks = _paras(copy["intro"])
+    blocks = [_html_block("".join(_paras(copy["intro"])))]
     for b in plan["beers"]:
-        url = html.escape(b["permalink"], quote=True)
-        name = html.escape(b["name"])
-        blocks.append(
-            "<!-- wp:heading -->\n"
-            f"<h2 class=\"wp-block-heading\"><a href=\"{url}\">{name}</a></h2>\n"
-            "<!-- /wp:heading -->"
-        )
-        blocks.append(
-            "<!-- wp:image {\"sizeSlug\":\"medium\",\"linkDestination\":\"custom\"} -->\n"
-            f"<figure class=\"wp-block-image size-medium\"><a href=\"{url}\">"
-            f"<img src=\"{html.escape(b['image'], quote=True)}\" alt=\"{name} non-alcoholic beer\"/>"
-            "</a></figure>\n<!-- /wp:image -->"
-        )
-        style = html.escape(", ".join(b["styles"][:2])) if b["styles"] else "NA beer"
-        price = f"${float(b['price']):.2f} a can" if b.get("price") else ""
-        meta = " · ".join(x for x in [style, price] if x)
-        blocks.append(f"<!-- wp:paragraph -->\n<p><strong>{meta}</strong></p>\n<!-- /wp:paragraph -->")
-        blocks.extend(_paras(copy["blurbs"][str(b["id"])]))
-        blocks.append(_button(f"Shop {b['name']}", b["permalink"]))
-    blocks.extend(_paras(copy["outro"]))
-    blocks.append(_button(cta["text"], cta["url"]))
+        blocks.append(_beer_card(b, copy["blurbs"][str(b["id"])]))
+    blocks.append(_html_block(
+        '<div style="padding:40px 28px;margin:12px 0 0;background:#f7f1e6;border-radius:12px;'
+        'text-align:center">' + "".join(_paras(copy["outro"])) + _button(cta["text"], cta["url"])
+        + "</div>"))
     return "\n\n".join(blocks) + "\n"
 
 
