@@ -39,7 +39,8 @@
     "services": ["instagram", "facebook"],
     "channel_ids": {"instagram": "6ae795d2e29c69a1712c599f", "facebook": "6ae79677e29c69a1712c5e83"},
     "extra_input": {
-      "instagram": {"metadata": {"instagram": {"type": "post", "shouldShareToFeed": true}}}
+      "instagram": {"metadata": {"instagram": {"type": "post", "shouldShareToFeed": true}}},
+      "facebook": {"metadata": {"facebook": {"type": "post"}}}
     }
   }
 }

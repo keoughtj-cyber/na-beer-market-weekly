@@ -192,6 +192,8 @@ def cmd_buffer_test(args):
     texts = {"instagram": copy["instagram_caption"],
              "facebook": copy["facebook_caption"].replace("{url}", out.get("link") or cfg["cta"]["url"])}
     for service, cid in buf.resolve_channels(cfg).items():
+        if args.only and service != args.only:
+            continue
         p = buf.create_post(cid, "[TEST DRAFT] " + texts[service], out["media_url"], draft=True,
                             extra=(cfg["buffer"].get("extra_input") or {}).get(service))
         print(f"{service}: draft {p['id']} status={p['status']}")
@@ -217,7 +219,9 @@ def main(argv=None):
     p.add_argument("--dry-run", action="store_true"); p.set_defaults(fn=cmd_publish)
     p = sub.add_parser("buffer-channels"); p.set_defaults(fn=cmd_buffer_channels)
     p = sub.add_parser("buffer-test", help="save this week's posts to Buffer as drafts only")
-    p.add_argument("--date", required=True); p.set_defaults(fn=cmd_buffer_test)
+    p.add_argument("--date", required=True)
+    p.add_argument("--only", choices=["instagram", "facebook"], help="one channel only")
+    p.set_defaults(fn=cmd_buffer_test)
     args = ap.parse_args(argv)
     args.fn(args)
 
