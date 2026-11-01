@@ -57,7 +57,7 @@ class PickTests(unittest.TestCase):
 
 class RenderTests(unittest.TestCase):
     plan = {"beers": [pick.summarize(product(7, "Go <Brewing> Pils"))]}
-    copy = {"title": "T", "excerpt": "E", "intro": "Hi\n\nThere", "blurbs": {"7": "Nice & crisp"},
+    copy = {"title": "T", "excerpt": "E", "intro": "Hi\n\nThere", "blurbs": {"7": "Nice & crisp, with a clean finish that works with almost anything on the table."},
             "outro": "Bye", "image_headline": "H", "instagram_caption": "IG",
             "facebook_caption": "FB {url}"}
 
@@ -68,6 +68,12 @@ class RenderTests(unittest.TestCase):
         self.assertIn('href="https://m/7/"', out)
         self.assertIn(CFG["cta"]["url"], out)
         self.assertEqual(out.count("<p style="), 5)
+
+    def test_lint_blocks_banned_phrases(self):
+        with self.assertRaises(SystemExit):
+            render.validate_copy(dict(self.copy, intro="Get a buzz without the booze"), self.plan)
+        with self.assertRaises(SystemExit):
+            render.validate_copy(dict(self.copy, outro="Price {price} here"), self.plan)
 
     def test_validate_catches_missing_blurb_and_url(self):
         bad = dict(self.copy, blurbs={})

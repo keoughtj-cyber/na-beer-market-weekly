@@ -21,6 +21,32 @@ def validate_copy(copy, plan):
         raise SystemExit("facebook_caption must contain {url} where the post link goes")
     if len(copy["instagram_caption"]) > 2200:
         raise SystemExit("instagram_caption is over Instagram's 2,200 character limit")
+    lint_copy(copy)
+
+
+# Phrases that must never ship: off-brand for a non-alcoholic store, health
+# claims, or leftovers from drafting. Checked automatically because nothing is
+# reviewed by a person before publishing.
+BANNED = ["drunk", "buzzed", "get a buzz", "wasted", "hangover cure", "detox", "cures",
+          "healthy", "health benefits", "lorem ipsum", "todo", "tbd", "xxx",
+          "[insert", "as an ai"]
+
+
+def lint_copy(copy):
+    texts = [copy["title"], copy["excerpt"], copy["intro"], copy["outro"],
+             copy["image_headline"], copy["instagram_caption"],
+             copy["facebook_caption"].replace("{url}", "")] + list(copy["blurbs"].values())
+    joined = "\n".join(texts).lower()
+    hits = [b for b in BANNED if b in joined]
+    if hits:
+        raise SystemExit(f"copy.json contains banned phrases: {hits}")
+    if "{" in joined or "}" in joined:
+        raise SystemExit("copy.json has a leftover {placeholder}")
+    short = [k for k, v in copy["blurbs"].items() if len(v.strip()) < 60]
+    if short:
+        raise SystemExit(f"blurbs too short for product ids: {short}")
+    if len(copy["image_headline"]) > 34:
+        raise SystemExit("image_headline is over 34 characters")
 
 
 RED = "#A1140F"

@@ -6,17 +6,19 @@ non-alcoholic beers. It then schedules the same picks to Instagram and Facebook
 through Buffer. Mailchimp's RSS-to-email campaign picks up the new post from the
 category feed and sends the weekly email.
 
-**Nothing goes live without Tyler's approval.** Each week is previewed first, and
-only `publish --approved-by` schedules anything.
+**It runs on its own.** Tyler asked (2026-11-01) for no approval step. Instead,
+safety comes from automatic checks: tests, copy lint (banned phrases, placeholders,
+lengths), stock and repeat rules, and pinned Buffer channels. Any failure skips the week
+rather than publishing something half-made.
 
 ## The weekly loop
 
 | When | What happens |
 |---|---|
-| Monday | A scheduled Claude session follows [ROUTINE.md](ROUTINE.md). It runs `pick`, writes `copy.json` per [COPY_GUIDE.md](COPY_GUIDE.md), runs `draft` (WordPress **draft** + social image), and sends Tyler the preview. |
-| On approval | `publish --approved-by Tyler` schedules the post for **Thursday 10:00 ET**, plus Buffer posts 15 minutes later. |
-| Thursday 10:00 ET | WordPress publishes the post, then Buffer posts to Instagram and Facebook. Mailchimp RSS sends the email on its schedule. |
-| No approval | Nothing is scheduled, so the week is skipped. |
+| Monday | A scheduled Claude session follows [ROUTINE.md](ROUTINE.md): `pick`, write `copy.json` per [COPY_GUIDE.md](COPY_GUIDE.md), `draft`, self-check, then `publish`. |
+| Thursday 10:00 ET | WordPress publishes the post. |
+| Thursday 10:15 ET | Buffer posts to Instagram and Facebook. Mailchimp RSS emails the post. |
+| Any check fails | Nothing is published, and `weeks/<date>/SKIPPED.md` records why. |
 
 ## Commands
 

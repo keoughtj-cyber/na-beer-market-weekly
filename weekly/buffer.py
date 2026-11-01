@@ -54,7 +54,7 @@ class Buffer:
             "channelId": channel_id,
             "text": text,
             "schedulingType": "automatic",
-            "assets": {"images": [{"url": image_url}]},
+            "assets": [{"image": {"url": image_url}}],
         }
         if draft:
             payload.update(mode="addToQueue", saveToDraft=True)
