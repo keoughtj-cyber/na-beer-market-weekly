@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-05",
+  "publish_at": "2026-11-05T10:00:00-05:00",
+  "theme": "new-arrivals",
+  "theme_label": "New on the shelf",
+  "beers": [
+    {
+      "id": 41163,
+      "name": "Athletic Brewing Cold Off the Press Pilsner",
+      "brand": "athletic",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/athletic-brewing-cold-off-the-press-pilsner/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/10/athleticbrewingcoldoffthepressnonalcoholicpilsnerwitholiveoilnabeermarket-1.jpg",
+      "styles": [
+        "Pilsner"
+      ],
+      "stock_quantity": 100,
+      "description_excerpt": "Experience a delightful twist on tradition with Athletic Brewing's Cold Off the Press Pilsner, an innovative collaboration with Graza. This smooth and refreshing pilsner is uniquely brewed with Extra Virgin Olive Oil, delivering a taste profile that will elevate any occasion. Crafted for the discerning palate, Cold Off the Press features a classic pils-style essence, infused with herbal, floral, and zesty lemon notes, culminating in an extraordinarily clean and dry finish. With only 60 calories and 14 grams of carbohydrates, it’s a guilt-free indulgence for any time of day. The"
+    },
+    {
+      "id": 41160,
+      "name": "Go Brewing Baked Pecan Pie Fall Brew",
+      "brand": "go",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/go-brewing-baked-pecan-pie-fall-brew/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/10/gobrewingpecanpienonalcoholicfallbrewnabeermarket-1.jpg",
+      "styles": [
+        "Dark"
+      ],
+      "stock_quantity": 92,
+      "description_excerpt": "Experience the essence of fall with Go Brewing's Baked Pecan Pie Fall Brew, a delightful non-alcoholic creation that's perfect for cozy sweater weather. This limited release is a tribute to autumn, combining toasted pecans and dark brown sugar over a rich, deep ruby-red malt base. Crafted with real ingredients, including real pecans, brown sugar, and molasses, this brew offers an enticing flavor profile filled with notes of bread, cereal, and, of course, pecans. With an ABV of under 0.5%, it's a guilt-free indulgence that captures the warmth and nostalgia of"
+    },
+    {
+      "id": 41083,
+      "name": "Easy Does It Original Brew",
+      "brand": "easy",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/easy-does-it-original-brew/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/09/easydoesitoriginalbrewnonalcoholiclightbeernabeermarket.jpg",
+      "styles": [
+        "Lagers & Lights"
+      ],
+      "stock_quantity": 19,
+      "description_excerpt": "Experience the essence of classic American beer with Easy Does It Original Brew, a delightful non-alcoholic option that captivates the senses. Its golden-straw color embodies the warmth of tradition, while an enchanting floral aroma invites the drinker to take a sip. With a balanced hint of honey that enhances the flavor without overwhelming sweetness, this brew offers a smooth texture that is truly enjoyable. The crisp snap at the finish ensures a refreshingly easy drinking experience that leaves you wanting more, embodying the promise of a no-nonsense, quality beer. At"
+    },
+    {
+      "id": 41063,
+      "name": "Atmos Brewing Prospect Amber",
+      "brand": "atmos",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/atmos-brewing-prospect-amber/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/09/atmosbrewingprospectnonalcoholicambernabeermarket-1.jpg",
+      "styles": [
+        "Amber"
+      ],
+      "stock_quantity": 360,
+      "description_excerpt": "Experience the rich heritage of craft beer with Atmos Brewing's Prospect Amber, an exceptional American Amber Ale now available without the alcohol. This unique brew, inspired by Sawtooth Brewery's celebrated False Summit Amber Ale, showcases the potential of flavor without compromise. Crafted from premium Idaho 2-Row Barley and Caramel Malt, the malt profile brings a delightful balance of sweetness and body. Complemented by Idaho Cascade and Idaho Saaz hops, each sip delivers a harmonious blend of earthy and citrusy notes, making it an ideal choice for those seeking a satisfying"
+    },
+    {
+      "id": 41020,
+      "name": "Go Brewing Fruitless Extra Pale",
+      "brand": "go",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/go-brewing-fruitless-extra-pale/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/09/gobrewingfruitlessnonalcoholicipanabeermarket.jpg",
+      "styles": [
+        "Fruity & Sours",
+        "Pale Ale"
+      ],
+      "stock_quantity": 8,
+      "description_excerpt": "Experience the vibrant allure of Go Brewing's Fruitless Extra Pale, a non-alcoholic beer that perfectly balances flavor and refreshment without the guilt. With the delightful combination of Rakau, El Dorado, and Idaho 7 hops, this brew offers an explosion of tropical and citrus aromas paired with a juicy, medium-bodied finish. Fruitless earns its name by delivering the essence of a fruit-forward beer without a single piece of fruit in the kettle. The bright tropical scent and subtle sweetness shine through, while the barely-there bitterness ensures a smooth, enjoyable sip. Pour"
+    }
+  ]
+}

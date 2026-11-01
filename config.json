@@ -1,0 +1,46 @@
+{
+  "market_base": "https://market.nabeerclub.com",
+  "display_domain": "nabeermarket.com",
+  "timezone": "America/New_York",
+  "publish_weekday": "thursday",
+  "publish_time": "10:00",
+  "beers_per_week": 5,
+  "min_stock": 6,
+  "max_per_brand": 2,
+  "no_repeat_weeks": 6,
+  "post_category": {"name": "Weekly Picks", "slug": "weekly-picks"},
+  "cta": {
+    "text": "Build your own 12-pack",
+    "url": "https://market.nabeerclub.com/build-your-own-non-alcoholic-beer-12-pack/"
+  },
+  "always_exclude_product_ids": [],
+  "always_exclude_name_contains": ["Test Beer", "Gift Card"],
+  "rotation": ["new-arrivals", "hoppy", "crisp", "hidden-gems", "dark-and-malty", "fruity-and-sour"],
+  "seasonal": [
+    {"theme": "occasion", "label": "Thanksgiving table", "from": "11-17", "to": "11-27"},
+    {"theme": "occasion", "label": "Holiday party", "from": "12-08", "to": "12-24"},
+    {"theme": "occasion", "label": "New Year and Dry January", "from": "12-26", "to": "01-15"}
+  ],
+  "themes": {
+    "new-arrivals":    {"label": "New on the shelf", "sort": "newest"},
+    "hidden-gems":     {"label": "Hidden gems and last chance", "sort": "lowest_stock"},
+    "hoppy":           {"label": "Hoppy picks", "sort": "shuffle",
+                        "categories": ["ipa-hoppy-non-alcoholic-beers", "ipa", "hazy-ipa", "fruity-ipa", "pale-ale", "double-ipa", "west-coast-ipa", "juicy-ipa", "dark-ipa"]},
+    "crisp":           {"label": "Crisp and easy", "sort": "shuffle",
+                        "categories": ["lagers-light-non-alcoholic-beers", "pilsner", "lager", "cerveza", "kolsch", "helles", "golden", "blonde", "rice"]},
+    "dark-and-malty":  {"label": "Dark and malty", "sort": "shuffle",
+                        "categories": ["dark-non-alcoholic-beers", "amber", "porter", "brown-ale", "dunkel", "marzen", "oktoberfest", "pumpkin", "coffee", "chocolate", "irish-ale"]},
+    "fruity-and-sour": {"label": "Fruity and sour", "sort": "shuffle",
+                        "categories": ["fruity", "radler", "shandy", "fruity-ipa", "witbier", "weisse", "wheat"]},
+    "occasion":        {"label": "Occasion picks", "sort": "mixed_styles",
+                        "mix": ["crisp", "hoppy", "dark-and-malty", "fruity-and-sour", "new-arrivals"]}
+  },
+  "buffer": {
+    "services": ["instagram", "facebook"],
+    "channel_ids": {"instagram": "6ae795d2e29c69a1712c599f", "facebook": "6ae79677e29c69a1712c5e83"},
+    "extra_input": {
+      "instagram": {"metadata": {"instagram": {"type": "post", "shouldShareToFeed": true}}},
+      "facebook": {"metadata": {"facebook": {"type": "post"}}}
+    }
+  }
+}
