@@ -58,7 +58,7 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
 - `weeks/<date>/`: `plan.json` (picked beers), `copy.json` (the words), `na-beer-market-weekly-picks-<date>.png`,
   `preview.html`, and `out.json` (WordPress/Buffer ids and status). Committed every week as a record.
 - `state/featured.json`: which beers ran which week.
-- `assets/logo-red.png`: brand logo for the social image.
+- `assets/logo-market.png`: NA Beer Market logo for the social image.
 
 ## Notes
 

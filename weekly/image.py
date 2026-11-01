@@ -10,9 +10,9 @@ from .http import USER_AGENT
 W, H = 1080, 1350
 RED = (161, 20, 15)
 CREAM = (247, 241, 230)
-INK = (40, 30, 25)
+INK = (12, 25, 47)  # NA Beer Market navy
 HERE = os.path.dirname(os.path.abspath(__file__))
-LOGO = os.path.join(HERE, "..", "assets", "logo-red.png")
+LOGO = os.path.join(HERE, "..", "assets", "logo-market.png")
 FONT_CANDIDATES = [
     "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
     "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
@@ -41,7 +41,14 @@ def _wrap(draw, text, font, width):
         else:
             lines.append(line)
             line = word
-    return lines + [line] if line else lines
+    lines = lines + [line] if line else lines
+    if len(lines) == 2:  # balance two lines so one word isn't left alone
+        words = text.split()
+        best = min(range(1, len(words)), key=lambda i: max(
+            draw.textlength(" ".join(words[:i]), font=font),
+            draw.textlength(" ".join(words[i:]), font=font)))
+        lines = [" ".join(words[:best]), " ".join(words[best:])]
+    return lines
 
 
 def compose(headline, image_urls, out_path, footer="Shop at nabeermarket.com",
@@ -89,8 +96,8 @@ def compose(headline, image_urls, out_path, footer="Shop at nabeermarket.com",
     d.rectangle([0, H - 170, W, H], fill="white")
     try:
         logo = Image.open(LOGO).convert("RGBA")
-        logo = ImageOps.contain(logo, (300, 110))
-        img.paste(logo, (60, H - 140), logo)
+        logo = ImageOps.contain(logo, (250, 140))
+        img.paste(logo, (60, H - 170 + (170 - logo.height) // 2), logo)
         fx = 60 + logo.width + 30
     except OSError:
         fx = 60
