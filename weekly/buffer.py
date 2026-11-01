@@ -47,15 +47,19 @@ class Buffer:
             raise SystemExit(f"No connected Buffer channel for: {', '.join(missing)}")
         return ids
 
-    def create_post(self, channel_id, text, image_url, due_at_iso, extra=None):
+    def create_post(self, channel_id, text, image_url, due_at_iso=None, extra=None, draft=False):
+        """Schedule a post for due_at_iso, or with draft=True save it as a Buffer
+        draft that never publishes until someone schedules it in Buffer."""
         payload = {
             "channelId": channel_id,
             "text": text,
-            "mode": "customScheduled",
-            "dueAt": due_at_iso,
             "schedulingType": "automatic",
             "assets": {"images": [{"url": image_url}]},
         }
+        if draft:
+            payload.update(mode="addToQueue", saveToDraft=True)
+        else:
+            payload.update(mode="customScheduled", dueAt=due_at_iso)
         payload.update(extra or {})
         data = self.gql(
             """mutation($input: CreatePostInput!) { createPost(input: $input) {

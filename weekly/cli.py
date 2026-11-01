@@ -181,6 +181,22 @@ def cmd_publish(args):
     print(json.dumps(out, indent=2))
 
 
+def cmd_buffer_test(args):
+    """Save this week's captions + image to Buffer as DRAFTS (never published)."""
+    from .buffer import Buffer
+    cfg = config()
+    wd = week_dir(dt.date.fromisoformat(args.date))
+    copy = load_json(os.path.join(wd, "copy.json"))
+    out = load_json(os.path.join(wd, "out.json"))
+    buf = Buffer()
+    texts = {"instagram": copy["instagram_caption"],
+             "facebook": copy["facebook_caption"].replace("{url}", out.get("link") or cfg["cta"]["url"])}
+    for service, cid in buf.resolve_channels(cfg).items():
+        p = buf.create_post(cid, "[TEST DRAFT] " + texts[service], out["media_url"], draft=True,
+                            extra=(cfg["buffer"].get("extra_input") or {}).get(service))
+        print(f"{service}: draft {p['id']} status={p['status']}")
+
+
 def cmd_buffer_channels(args):
     from .buffer import Buffer
     for ch in Buffer().channels():
@@ -200,6 +216,8 @@ def main(argv=None):
                    help="who approved this week's preview (recorded in out.json)")
     p.add_argument("--dry-run", action="store_true"); p.set_defaults(fn=cmd_publish)
     p = sub.add_parser("buffer-channels"); p.set_defaults(fn=cmd_buffer_channels)
+    p = sub.add_parser("buffer-test", help="save this week's posts to Buffer as drafts only")
+    p.add_argument("--date", required=True); p.set_defaults(fn=cmd_buffer_test)
     args = ap.parse_args(argv)
     args.fn(args)
 

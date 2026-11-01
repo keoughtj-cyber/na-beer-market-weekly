@@ -27,6 +27,7 @@ python -m weekly pick [--date 2026-11-05] [--theme new-arrivals]   # writes week
 python -m weekly draft   --date 2026-11-05 [--dry-run]              # WP draft + na-beer-market-weekly-picks-<date>.png + preview.html
 python -m weekly publish --date 2026-11-05 --approved-by Tyler [--dry-run]
 python -m weekly buffer-channels                                     # list Buffer channel ids
+python -m weekly buffer-test --date 2026-11-05                       # save the week to Buffer as drafts only
 python -m unittest discover -s tests
 ```
 
@@ -62,6 +63,7 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
 
 ## Notes
 
+- Channel ids are pinned in `config.json → buffer.channel_ids` because the Buffer org also holds an unrelated Instagram account.
 - Buffer's GraphQL API is in public beta. If Instagram needs extra post fields, set
   them in `config.json → buffer.extra_input.instagram` without changing code.
 - The Market host returns 406 to Python's default User-Agent, so `weekly/http.py`
