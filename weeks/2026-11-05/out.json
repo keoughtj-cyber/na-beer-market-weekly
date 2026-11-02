@@ -1,6 +1,6 @@
 {
   "post_id": 41242,
-  "status": "draft",
+  "status": "scheduled",
   "edit_link": "https://market.nabeerclub.com/wp-admin/post.php?post=41242&action=edit",
   "preview_link": "https://market.nabeerclub.com/?p=41242&preview=true",
   "media_id": 41245,
@@ -19,5 +19,20 @@
     41249,
     41250,
     41251
-  ]
+  ],
+  "link": "https://market.nabeerclub.com/?p=41242",
+  "approved_by": "auto-routine",
+  "approved_at": "2026-11-02T18:34:38.807878+00:00",
+  "buffer": {
+    "instagram": {
+      "id": "6ae8d7bf87c5ea7cde557347",
+      "status": "scheduled",
+      "dueAt": "2026-11-05T17:00:00.000Z"
+    },
+    "facebook": {
+      "id": "6ae8d7bf4e55e026087aa0a2",
+      "status": "scheduled",
+      "dueAt": "2026-11-05T17:00:00.000Z"
+    }
+  }
 }

@@ -1,1 +1,27 @@
-[]
+[
+  {
+    "week": "2026-11-05",
+    "product_id": 41163,
+    "name": "Athletic Brewing Cold Off the Press Pilsner"
+  },
+  {
+    "week": "2026-11-05",
+    "product_id": 41160,
+    "name": "Go Brewing Baked Pecan Pie Fall Brew"
+  },
+  {
+    "week": "2026-11-05",
+    "product_id": 41083,
+    "name": "Easy Does It Original Brew"
+  },
+  {
+    "week": "2026-11-05",
+    "product_id": 41063,
+    "name": "Atmos Brewing Prospect Amber"
+  },
+  {
+    "week": "2026-11-05",
+    "product_id": 41020,
+    "name": "Go Brewing Fruitless Extra Pale"
+  }
+]
