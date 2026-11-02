@@ -24,9 +24,17 @@ Work in a clone of this repo on `main`. Secrets come from the environment
 6. `python -m weekly publish --date <date> --approved-by auto-routine`.
    This schedules the WordPress post for 10:00 ET on that date and the Buffer
    carousel for 12:00 ET. Mailchimp's RSS campaign emails the post on its own.
+6b. Add three events to Tyler's Google Calendar (primary, nabrewskey@gmail.com,
+   time zone America/New_York, 15 min, shown as free) with the Google Calendar
+   connector: "Market Weekly Picks post goes live (<theme label>)" at the post time
+   (link and beers in the description), "Market Weekly Picks email sends (Mailchimp RSS)"
+   one hour after it, and "Market Weekly Picks carousels post to Instagram and Facebook"
+   at the social time (Buffer post ids in the description). Tyler wants every marketing
+   item on his calendar (2026-11-02). If the connector is unavailable, note it in the
+   summary; it never blocks publishing.
 7. Commit `weeks/<date>/` and `state/featured.json` to `main` with the message
    "Weekly picks <date>: <theme label>" and push.
 8. Skipping a week: delete nothing, publish nothing. Write `weeks/<date>/SKIPPED.md`
    with the reason and the exact error, commit, push.
 9. Last, reply with a short summary: date, theme, beers, post link, Buffer post
-   ids (or why the week was skipped).
+   ids, calendar events added (or why the week was skipped).
