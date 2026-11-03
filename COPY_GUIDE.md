@@ -20,6 +20,16 @@ The goal is orders. Make each beer sound worth trying now. Name a specific occas
 - Write for adults aged about 35 to 65 who research before buying. Be knowledgeable and warm, like a friendly cicerone, with no slang. Facebook matters as much as Instagram for this audience.
 - Don't use recovery or sobriety framing, and don't make health claims.
 
+## Gift 12 Days of NA Beer (Nov 21 to early December)
+
+From Nov 21 the Market pitches "Gift someone 12 Days of NA Beer": build a 12-pack
+as a gift, and they open one can a day from Dec 12 to Dec 24. It's a gift angle first.
+- On the "Gift 12 Days of NA Beer" theme week (Dec 3), lead the intro with the gift idea,
+  then present the picks as great days for the 12. The outro ends on building their pack.
+- On the Thanksgiving week (Nov 24), add one line to the outro about it.
+- Order-by date: `config.json → gift_12_days.order_by` (order by Thursday, Dec 3 for Dec 12 delivery). Use it in every 12 Days mention; on Dec 3 itself say "order today". Never invent another deadline.
+- Never compare it to the Advent calendar, name Advent beers or say it's cheaper.
+
 ## Fields
 
 | Field | Notes |

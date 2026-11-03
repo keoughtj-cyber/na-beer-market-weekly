@@ -10,6 +10,7 @@
     "2026-12-24": "2026-12-22",
     "2026-12-31": "2026-12-29"
   },
+  "gift_12_days": {"order_by": "Thursday, Dec 3 for Dec 12 delivery", "opens": "Dec 12 to Dec 24"},
   "beers_per_week": 5,
   "min_stock": 6,
   "max_per_brand": 2,
@@ -24,6 +25,7 @@
   "rotation": ["new-arrivals", "hoppy", "crisp", "hidden-gems", "dark-and-malty", "fruity-and-sour"],
   "seasonal": [
     {"theme": "occasion", "label": "Thanksgiving table", "from": "11-17", "to": "11-27"},
+    {"theme": "occasion", "label": "Gift 12 Days of NA Beer", "from": "11-28", "to": "12-05"},
     {"theme": "occasion", "label": "Holiday party", "from": "12-08", "to": "12-24"},
     {"theme": "occasion", "label": "New Year and Dry January", "from": "12-26", "to": "01-15"}
   ],
