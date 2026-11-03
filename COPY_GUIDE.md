@@ -27,7 +27,7 @@ as a gift, and they open one can a day from Dec 12 to Dec 24. It's a gift angle 
 - On the "Gift 12 Days of NA Beer" theme week (Dec 3), lead the intro with the gift idea,
   then present the picks as great days for the 12. The outro ends on building their pack.
 - On the Thanksgiving week (Nov 24), add one line to the outro about it.
-- Order-by date: `config.json → gift_12_days.order_by` (Thursday, Dec 3). Use it in every 12 Days mention; on Dec 3 itself say "order today". Never invent another deadline.
+- Order-by date: `config.json → gift_12_days.order_by` (order by Thursday, Dec 3 for Dec 12 delivery). Use it in every 12 Days mention; on Dec 3 itself say "order today". Never invent another deadline.
 - Never compare it to the Advent calendar, name Advent beers or say it's cheaper.
 
 ## Fields
