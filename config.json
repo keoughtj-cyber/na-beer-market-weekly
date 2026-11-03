@@ -10,6 +10,7 @@
     "2026-12-24": "2026-12-22",
     "2026-12-31": "2026-12-29"
   },
+  "gift_12_days": {"order_by": "Thursday, Dec 3", "opens": "Dec 12 to Dec 24"},
   "beers_per_week": 5,
   "min_stock": 6,
   "max_per_brand": 2,
