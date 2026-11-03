@@ -24,6 +24,7 @@
   "rotation": ["new-arrivals", "hoppy", "crisp", "hidden-gems", "dark-and-malty", "fruity-and-sour"],
   "seasonal": [
     {"theme": "occasion", "label": "Thanksgiving table", "from": "11-17", "to": "11-27"},
+    {"theme": "occasion", "label": "12 Days of NA Beer", "from": "11-28", "to": "12-12"},
     {"theme": "occasion", "label": "Holiday party", "from": "12-08", "to": "12-24"},
     {"theme": "occasion", "label": "New Year and Dry January", "from": "12-26", "to": "01-15"}
   ],
