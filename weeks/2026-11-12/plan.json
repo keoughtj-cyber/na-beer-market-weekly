@@ -1,0 +1,62 @@
+{
+  "date": "2026-11-12",
+  "publish_at": "2026-11-12T10:00:00-05:00",
+  "social_at": "2026-11-12T12:00:00-05:00",
+  "theme": "dark-and-malty",
+  "theme_label": "Dark and malty",
+  "beers": [
+    {
+      "id": 40882,
+      "name": "Best Day Oktoberfest",
+      "brand": "best",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/best-day-oktoberfest/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/07/bestdaybrewingnonalcoholicoktoberfestmarzenstylenabeermarket-1.jpg",
+      "styles": [
+        "Marzen",
+        "Oktoberfest"
+      ],
+      "stock_quantity": 16,
+      "description_excerpt": "Experience the essence of Bavaria with Best Day Oktoberfest, an Amber Festbier that captures the spirit of the traditional Oktoberfest celebrated in Munich. This limited-time offering is crafted in the style of a classic Märzen, making it a perfect choice for those looking to savor seasonal flavors. The beer enchants with its warm amber glow, offering a delightful aroma of malty richness. On the palate, it reveals a subtly sweet body balanced by a delicate hop character, ensuring a smooth and crisp finish. Best Day Oktoberfest is designed for endless"
+    },
+    {
+      "id": 36922,
+      "name": "1820 Brewing Stand Up & Stout",
+      "brand": "1820",
+      "price": "3.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/1820-brewing-stand-up-stout/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2025/05/1820-brewing-stand-up-and-stout-na-beer-market.jpg",
+      "styles": [
+        "Dark"
+      ],
+      "stock_quantity": 354,
+      "description_excerpt": "Stand Up & Stout from 1820 Brewing offers a compelling non-alcoholic take on the traditional stout. Medium-bodied and dark in appearance, this brew balances a mild sweetness with a smooth roasted malt finish, delivering a nuanced flavor that’s rich without overwhelming the palate. Its complexity is rooted in a thoughtful blend of ingredients, including malted barley, roasted barley, malted wheat, and rolled oats. The hop profile features a classic trio—Nugget, East Kent Golding, and Fuggles—adding earthy and lightly bitter notes that round out the stout's character. With just 80 calories"
+    },
+    {
+      "id": 40537,
+      "name": "Ceebo Mexican Style Amber with Lime",
+      "brand": "ceebo",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/ceebo-the-amber-mexican-style-amber/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/05/ceebobrewcotheambermexicanstylenonalcoholicambernabeermarket-1.jpg",
+      "styles": [
+        "Amber"
+      ],
+      "stock_quantity": 16,
+      "description_excerpt": "Ceebo's \"The Amber\" is a delightful non-alcoholic amber cerveza infused with a refreshing hint of lime. This versatile brew showcases rich dark roasted malt and toffee notes, perfectly balanced by the zesty lime, making it an ideal choice for those seeking a session-friendly darker style. Whether paired with tacos, enjoyed at a BBQ, or sipped while relaxing by the beach, \"The Amber\" promises to elevate any occasion. Indulge in a flavorful experience that brings the best of ambers without the alcohol."
+    },
+    {
+      "id": 38780,
+      "name": "Go Brewing F*k'in Pum'kin",
+      "brand": "go",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/go-brewing-fkin-pumpkin/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2025/09/fkinpumkinnonalcoholicpumpkinbeerbygobrewingonthenabeermarket-1.png",
+      "styles": [
+        "Pumpkin"
+      ],
+      "stock_quantity": 91,
+      "description_excerpt": "Go Brewing introduces F*k'in Pum'kin*, a bold seasonal release available exclusively to its Beer Club members. Crafted as a special thank-you to loyal fans, this non-alcoholic brew skips the gimmicks and goes straight for what matters—rich, fresh flavor. Brewed with real pumpkin purée and a warming blend of fall spices including cinnamon, nutmeg, clove, allspice, and ginger, it's designed to capture the essence of autumn in every sip. With a smooth, spiced character and just 113 calories per serving, this limited-edition beer balances warmth and drinkability without the buzz. At"
+    }
+  ]
+}
