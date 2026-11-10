@@ -23,7 +23,7 @@ The goal is orders. Make each beer sound worth trying now. Name a specific occas
 ## Gift 12 Days of NA Beer (Nov 21 to early December)
 
 From Nov 21 the Market pitches "Gift someone 12 Days of NA Beer": build a 12-pack
-as a gift, and they open one can a day from Dec 12 to Dec 24. It's a gift angle first.
+as a gift, and they open one can a day from Dec 13 to Dec 24 (12 nights; it arrives by Dec 12). It's a gift angle first.
 - On the "Gift 12 Days of NA Beer" theme week (Dec 3), lead the intro with the gift idea,
   then present the picks as great days for the 12. The outro ends on building their pack.
 - On the Thanksgiving week (Nov 24), add one line to the outro about it.
