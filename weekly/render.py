@@ -119,3 +119,97 @@ def preview_page(title, body_html):
         "background:#A1140F;color:#fff;padding:.5em 1em;border-radius:4px;text-decoration:none}</style>"
         f"<h1>{html.escape(title)}</h1>{body_html}"
     )
+
+
+# ---- Email version -------------------------------------------------------
+# Mailchimp's RSS campaign pastes *|RSSITEM:CONTENT_FULL|* into
+# email/mailchimp-rss-template.html. The web post's flex layout looks poor on
+# phones, so `draft` also saves this table-based, phone-first version as post
+# meta "nabc_email_html", and a Market Code Snippet ("Weekly picks: email
+# version in feed") serves that meta in the RSS feed instead of the web body.
+# House email look: cream, red bar, Georgia, red pill buttons.
+
+E_RED = "#b21a19"
+INK = "#2b2b2b"
+CREAM = "#f3ece0"
+CARD = "#f8f3ea"
+SERIF = "Georgia,'Times New Roman',serif"
+SANS = "Arial,Helvetica,sans-serif"
+
+
+def _p(text, size=17, lh=27, color=INK, margin="0 0 14px", align="left"):
+    out = []
+    for chunk in text.strip().split("\n\n"):
+        chunk = html.escape(chunk.strip()).replace("\n", "<br>")
+        if chunk:
+            out.append(f'<p style="margin:{margin};font-family:{SERIF};font-size:{size}px;'
+                       f'line-height:{lh}px;color:{color};text-align:{align}">{chunk}</p>')
+    return "".join(out)
+
+
+def _pill(text, url, block=False):
+    disp = "display:block;text-align:center" if block else "display:inline-block"
+    return (f'<a href="{html.escape(url, quote=True)}" style="{disp};background:{E_RED};color:#ffffff;'
+            f'font-family:{SANS};font-size:16px;font-weight:bold;text-decoration:none;'
+            f'padding:14px 28px;border-radius:30px">{html.escape(text)}</a>')
+
+
+def _utm(url, campaign):
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}utm_source=mailchimp&utm_medium=email&utm_campaign={campaign}"
+
+
+def beer_card(b, blurb, campaign):
+    url = _utm(b["permalink"], campaign)
+    u = html.escape(url, quote=True)
+    name = html.escape(b["name"])
+    style = html.escape(", ".join(b["styles"][:2])) if b.get("styles") else "NA beer"
+    price = f"${float(b['price']):.2f}" if b.get("price") else ""
+    btn = f"Shop this beer &middot; {price}" if price else "Shop this beer"
+    return (
+        '<tr><td class="px" style="padding:0 20px 16px">'
+        f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" '
+        f'style="background:{CARD};border-radius:10px"><tr><td class="cardpad" style="padding:22px 22px 24px">'
+        f'<a href="{u}"><img src="{html.escape(b["image"], quote=True)}" width="200" '
+        f'alt="{name} non-alcoholic beer" style="display:block;margin:0 auto 16px;width:200px;'
+        'max-width:100%;height:auto;border:0;border-radius:8px"></a>'
+        f'<p style="margin:0 0 4px;font-family:{SERIF};font-size:22px;line-height:28px;font-weight:bold;'
+        f'text-align:center"><a href="{u}" style="color:{INK};text-decoration:none">{name}</a></p>'
+        f'<p style="margin:0 0 14px;font-family:{SANS};font-size:12px;line-height:18px;font-weight:bold;'
+        f'letter-spacing:1px;text-transform:uppercase;color:{E_RED};text-align:center">{style}</p>'
+        + _p(blurb, size=16, lh=25, margin="0 0 18px")
+        + f'<a href="{u}" style="display:block;text-align:center;background:{E_RED};color:#ffffff;'
+        f'font-family:{SANS};font-size:16px;font-weight:bold;text-decoration:none;padding:14px 20px;'
+        f'border-radius:30px">{btn}</a>'
+        "</td></tr></table></td></tr>"
+    )
+
+
+def build_email_body(plan, copy, cta):
+    """The part that replaces *|RSSITEM:CONTENT_FULL|* (a table inside the 600px card)."""
+    campaign = f"market-weekly-{plan['date']}"
+    rows = [f'<tr><td class="px" style="padding:0 24px 10px">{_p(copy["excerpt"], align="center", color="#555555")}</td></tr>']
+    rows += [beer_card(b, copy["blurbs"][str(b["id"])], campaign) for b in plan["beers"]]
+    rows.append(
+        f'<tr><td class="px" align="center" style="padding:14px 28px 30px">'
+        + _p(copy["outro"], size=16, lh=25, align="center", margin="0 0 18px")
+        + _pill(cta["text"], _utm(cta["url"], campaign)) + "</td></tr>")
+    # One self-contained table, so the feed item is valid HTML on its own.
+    return ('<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">'
+            + "".join(rows) + "</table>")
+
+
+def email_preview_page(title, body_rows):
+    """The whole email as Mailchimp will send it, with merge tags filled in."""
+    import os
+    path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "email", "mailchimp-rss-template.html")
+    tpl = open(path, encoding="utf-8").read()
+    head, rest = tpl.split("*|RSSITEMS:|*")
+    item, tail = rest.split("*|END:RSSITEMS|*")
+    item = (item.replace("*|RSSITEM:URL|*", "#").replace("*|RSSITEM:TITLE|*", html.escape(title))
+            .replace("*|RSSITEM:CONTENT_FULL|*", body_rows))
+    out = head + item + tail
+    for tag, val in {"*|MC:SUBJECT|*": html.escape(title), "*|MC_PREVIEW_TEXT|*": "",
+                     "*|LIST:ADDRESSLINE|*": "NA Beer Club", "*|UPDATE_PROFILE|*": "#", "*|UNSUB|*": "#"}.items():
+        out = out.replace(tag, val)
+    return out

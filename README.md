@@ -73,4 +73,4 @@ The environment's network policy must allow `market.nabeerclub.com` and `api.buf
 - The Market host returns 406 to Python's default User-Agent, so `weekly/http.py`
   sends a curl-like one.
 
-- `email/mailchimp-rss-template.html`: the HTML of the Mailchimp RSS campaign "NA Beer Market - Weekly Picks (RSS)" (checks Tuesdays and Thursdays 11:00 ET and sends only when the feed has a new post).
+- `email/mailchimp-rss-template.html`: the HTML of the Mailchimp RSS campaign (house look: cream, red bar, Georgia). The email body is not the web post: `draft` saves a phone-first, table-based version as post meta `nabc_email_html` (preview in `weeks/<date>/email-preview.html`), and Market Code Snippet #36 serves that meta in the weekly-picks feed. The campaign "NA Beer Market - Weekly Picks (RSS)" (checks Tuesdays and Thursdays 11:00 ET and sends only when the feed has a new post).
