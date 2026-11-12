@@ -119,8 +119,11 @@ def cmd_draft(args):
     body = render.build_post_html(plan, copy, cfg["cta"])
     with open(os.path.join(wd, "preview.html"), "w") as f:
         f.write(render.preview_page(copy["title"], body))
+    email_body = render.build_email_body(plan, copy, cfg["cta"])
+    with open(os.path.join(wd, "email-preview.html"), "w") as f:
+        f.write(render.email_preview_page(copy["title"], email_body))
     if args.dry_run:
-        print(f"dry run: wrote {os.path.relpath(wd, ROOT)}/preview.html, the cover and {len(slides) - 1} beer slides")
+        print(f"dry run: wrote {os.path.relpath(wd, ROOT)}/preview.html, email-preview.html, the cover and {len(slides) - 1} beer slides")
         return
 
     from .market import Market
@@ -141,6 +144,7 @@ def cmd_draft(args):
     fields = {
         "title": copy["title"], "content": body, "excerpt": copy["excerpt"],
         "status": "draft", "categories": [cat], "featured_media": out["media_id"],
+        "meta": {"nabc_email_html": email_body},
     }
     if copy.get("slug"):
         fields["slug"] = copy["slug"]

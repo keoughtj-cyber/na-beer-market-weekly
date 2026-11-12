@@ -69,6 +69,18 @@ class RenderTests(unittest.TestCase):
         self.assertIn(CFG["cta"]["url"], out)
         self.assertEqual(out.count("<p style="), 5)
 
+    def test_email_body_is_table_based_and_escaped(self):
+        plan = dict(self.plan, date="2026-11-12")
+        out = render.build_email_body(plan, self.copy, CFG["cta"])
+        self.assertNotIn("display:flex", out)
+        self.assertIn("Go &lt;Brewing&gt; Pils", out)
+        self.assertIn("Nice &amp; crisp", out)
+        self.assertIn("utm_campaign=market-weekly-2026-11-12", out)
+        self.assertIn("Shop this beer", out)
+        self.assertEqual(out.count("<tr>"), out.count("</tr>"))
+        page = render.email_preview_page("T", out)
+        self.assertNotIn("*|", page)
+
     def test_lint_blocks_banned_phrases(self):
         with self.assertRaises(SystemExit):
             render.validate_copy(dict(self.copy, intro="Get a buzz without the booze"), self.plan)
