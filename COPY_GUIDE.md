@@ -26,7 +26,9 @@ From Nov 21 the Market pitches "Gift someone 12 Days of NA Beer": build a 12-pac
 as a gift, and they open one can a day from Dec 13 to Dec 24 (12 nights; it arrives by Dec 12). It's a gift angle first.
 - On the "Gift 12 Days of NA Beer" theme week (Dec 3), lead the intro with the gift idea,
   then present the picks as great days for the 12. The outro ends on building their pack.
-- On the Thanksgiving week (Nov 24), add one line to the outro about it.
+- On the Thanksgiving week (Nov 24), end the outro with this short 12 Days block (Tyler approved 2026-11-13; it goes in the weekly email too, no extra send). Use it as written, then the usual Build Your Own 12-Pack line:
+  "**Gift someone 12 nights of NA beer.** You pick 12 cans. They open one a night, Dec 13 to Christmas Eve. Crisp pils, a lime amber, a few IPAs, something dark for the last night. Start with our list or build your own. Free shipping. **Order by Thursday, Dec 3** for Dec 12 delivery."
+  Keep the Facebook and Instagram captions to one 12 Days line.
 - Order-by date: `config.json → gift_12_days.order_by` (order by Thursday, Dec 3 for Dec 12 delivery). Use it in every 12 Days mention; on Dec 3 itself say "order today". Never invent another deadline.
 - Never compare it to the Advent calendar, name Advent beers or say it's cheaper.
 
