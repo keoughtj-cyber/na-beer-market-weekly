@@ -1,0 +1,38 @@
+{
+  "media_id": 41405,
+  "media_url": "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17.png",
+  "media_urls": [
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17.png",
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17-slide1.png",
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17-slide2.png",
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17-slide3.png",
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17-slide4.png",
+    "https://market.nabeerclub.com/wp-content/uploads/2026/11/na-beer-market-weekly-picks-2026-11-17-slide5.png"
+  ],
+  "slide_media_ids": [
+    41406,
+    41407,
+    41408,
+    41409,
+    41410
+  ],
+  "post_id": 41411,
+  "status": "scheduled",
+  "edit_link": "https://market.nabeerclub.com/wp-admin/post.php?post=41411&action=edit",
+  "preview_link": "https://market.nabeerclub.com/?p=41411&preview=true",
+  "link": "https://market.nabeerclub.com/?p=41411",
+  "approved_by": "auto-routine",
+  "approved_at": "2026-11-16T18:34:37.528409+00:00",
+  "buffer": {
+    "instagram": {
+      "id": "6afb4cbeca12ef5afd68995f",
+      "status": "scheduled",
+      "dueAt": "2026-11-17T17:00:00.000Z"
+    },
+    "facebook": {
+      "id": "6afb4cbfd1e269de78f999ed",
+      "status": "scheduled",
+      "dueAt": "2026-11-17T17:00:00.000Z"
+    }
+  }
+}

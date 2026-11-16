@@ -1,0 +1,79 @@
+{
+  "date": "2026-11-17",
+  "publish_at": "2026-11-17T10:00:00-05:00",
+  "social_at": "2026-11-17T12:00:00-05:00",
+  "theme": "occasion",
+  "theme_label": "Thanksgiving table",
+  "beers": [
+    {
+      "id": 40365,
+      "name": "Beaglepuss Dry Curious West Coast Pilz",
+      "brand": "beaglepuss",
+      "price": "5.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/beaglepuss-dry-curious-west-coast-pilz/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/03/beaglepussdrycuriouswestcoastpilznonalcoholicpilsnernabeermarket-1.jpg",
+      "styles": [
+        "Lagers & Lights",
+        "Pilsner"
+      ],
+      "stock_quantity": 18,
+      "description_excerpt": "For those seeking a truly bold non-alcoholic experience, Beaglepuss Dry Curious West Coast Pilz is a must-try. This crisp and clean West Coast Pilsner showcases an unapologetically hop-forward character that will captivate the senses. Lean and bone-dry, it elegantly channels traditional pilsner finesse while embracing a modern hop perspective. Expect vibrant bursts of citrus and pine, complemented by a subtle hint of dank resin, all supported by premium pilsner malt that ensures a refreshing and snappy taste. Late hop additions elevate the aroma, making each sip an exhilarating journey. Beaglepuss"
+    },
+    {
+      "id": 40091,
+      "name": "Switchback NA Ale",
+      "brand": "switchback",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/switchback-na-ale/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/01/switchbackbrewingswitchbacknanonalcoholicbeermarket.jpg",
+      "styles": [
+        "Pale Ale"
+      ],
+      "stock_quantity": 308,
+      "description_excerpt": "Switchback NA Ale delivers the essence of a traditional craft beer experience without the alcohol. Brewed with meticulous attention to balance and flavor, Switchback NA embodies the same high standards that characterize all creations from Switchback Brewing Co. This non-alcoholic ale features a vibrant hop aroma, enriched with subtle fruity notes from its unique house yeast, all resting on a smooth malt backbone. It is expertly crafted for those moments when balance truly matters. Designed for the discerning beer enthusiast, Switchback NA Ale is brewed using the innovative BrewVo system,"
+    },
+    {
+      "id": 40920,
+      "name": "Best Day Endless Mango IPA",
+      "brand": "best",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/best-day-brewing-endless-mango-ipa/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/08/bestdaybrewingendlessmangononalcoholicipanabeermarket-1.jpg",
+      "styles": [
+        "Fruity IPA",
+        "IPA & Hoppy"
+      ],
+      "stock_quantity": 25,
+      "description_excerpt": "Experience the tantalizing allure of Best Day Brewing's Endless Mango IPA, a vibrant brew that delivers a delightful explosion of flavor with every sip. Infused with the essence of ripe mango and bright citrus, this unique non-alcoholic beer offers a sweet yet slightly tart profile that dances on the palate. Crafted with just five natural ingredients—water, barley, hops, yeast, and luscious mango—Endless Mango IPA stands out with its balanced, hop-forward character. This fruit-forward ale yeast fermentation lends it a tropical flair, structured bitterness, and a crisp, refreshing finish that beckons"
+    },
+    {
+      "id": 40972,
+      "name": "Switchback Brewing Krush NA IPA",
+      "brand": "switchback",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/switchback-brewing-krush-na-ipa/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/08/SwitchbackKrushNAIPA-1.jpg",
+      "styles": [
+        "IPA",
+        "IPA & Hoppy"
+      ],
+      "stock_quantity": 45,
+      "description_excerpt": "Experience a vibrant taste sensation with Switchback Brewing's Krush NA IPA, a full-bodied hazy non-alcoholic IPA that tantalizes the senses. This remarkable brew opens up with a bright tropical aroma, delivering layers of hop flavor that burst with notes of orange, citrus, and exotic fruit. Crafted in collaboration with Yakima Chief Hops and Sustainable Beverage Technologies, Krush NA IPA embodies over two decades of brewing excellence at Switchback. Utilizing BrewVo® technology, this non-alcoholic IPA achieves bold hop aromas and a smooth, satisfying body, all while maintaining exceptional drinkability. The innovative"
+    },
+    {
+      "id": 40815,
+      "name": "BrewVo & New Terrain Brewing Maintain Mexican Brew",
+      "brand": "brewvo",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/brewvo-mexican-lager/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/07/brewvoandnewterrainbrewingmaintainmexicanstylenonalcoholiclagernabeermarket.jpg",
+      "styles": [
+        "Cerveza",
+        "Lager",
+        "Lagers & Lights"
+      ],
+      "stock_quantity": 22,
+      "description_excerpt": "Discover an extraordinary gem in the world of non-alcoholic beers with the BrewVo & New Terrain Brewing Maintain Mexican Brew. This beer is an extremely rare find, as it was crafted for the highly anticipated 2026 Great American Beer Festival, aiming to secure a coveted gold medal. Brewed in small batches, this Mexican-style lager features a delightful blend of corn and a hint of Vienna malt, delivering a refreshing profile that is both crushable and satisfying. Dry-hopped with Motueka Abstrax, it captures the essence of summer, making it the perfect"
+    }
+  ]
+}
