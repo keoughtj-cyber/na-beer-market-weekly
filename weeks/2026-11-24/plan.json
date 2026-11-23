@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-24",
+  "publish_at": "2026-11-24T10:00:00-05:00",
+  "social_at": "2026-11-24T12:00:00-05:00",
+  "theme": "occasion",
+  "theme_label": "Thanksgiving table",
+  "beers": [
+    {
+      "id": 39610,
+      "name": "Bulltown Brewing Bulltown Blonde",
+      "brand": "bulltown",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/bulltown-brewing-na-blonde/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2025/12/bulltownbrewingnonalcoholicblondenabeermarket-2.jpg",
+      "styles": [
+        "Blonde",
+        "Lagers & Lights"
+      ],
+      "stock_quantity": 201,
+      "description_excerpt": "Bulltown Blonde is the flagship brew from Bulltown Brewing, designed to deliver a crisp, full-bodied experience without the worry of a hangover. With an ABV of less than 0.5%, this refreshing beer is perfect for any occasion, whether it’s a relaxing Tuesday night with family or a spirited Saturday tailgate. Crafted by dedicated Midwesterners, Bulltown Blonde embodies the belief that beer should taste like beer, striking a perfect balance of bold flavor and enjoyment. The brewers, all fathers who understand the joy of a cold one after a long day,"
+    },
+    {
+      "id": 36205,
+      "name": "1820 Brewing Wave Finder IPA",
+      "brand": "1820",
+      "price": "4.49",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/1820-wave-finder/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2025/04/1820-wave-finder-ipa-na-beer-market-1.jpg",
+      "styles": [
+        "IPA"
+      ],
+      "stock_quantity": 22,
+      "description_excerpt": "Wave Finder by 1820 Brewing is a non-alcoholic IPA crafted for those who crave bold flavor without the buzz. This brew delivers a lively fusion of citrus notes, hop bitterness, and smooth malts, creating an adventurous drinking experience with a crisp, clean finish. Its satisfying profile invites another sip, offering all the character of a traditional IPA with none of the compromise. Brewed in Portland, Maine, Wave Finder features a carefully selected mix of Mosaic, Cascade, El Dorado, and Citra hops, balanced with malted barley and malted wheat. The result"
+    },
+    {
+      "id": 40782,
+      "name": "Bulltown Brewing Grapefruit Radler",
+      "brand": "bulltown",
+      "price": "5.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/bulltown-brewing-grapefruit-radler/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/07/bulltownbrewingnonalcoholicgrapefruitradlernabeermarket-1.jpg",
+      "styles": [
+        "Fruity & Sours",
+        "Radler"
+      ],
+      "stock_quantity": 6,
+      "description_excerpt": "For those seeking a refreshing twist on traditional flavors, the Bulltown Brewing Grapefruit Radler stands out as a must-try non-alcoholic option. This grapefruit-infused delight offers an ideal blend of gentle sweetness and a zestful tang that lifts the spirits with each sip. Crafted for moments of enjoyment, this Radler perfectly marries the citrusy brightness of grapefruit with a smooth finish, making it an exquisite choice for any occasion. Whether relaxing on a sunny afternoon or enjoying a lively gathering with friends, this beverage brings a burst of flavor that everyone"
+    },
+    {
+      "id": 40953,
+      "name": "Go Brewing Batch 001 Micro Brew",
+      "brand": "go",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/go-brewing-batch-001-micro-brew/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/08/Gobrewingbatch001microbrewnonalcoholicsecretbeernabeermarket-1.jpg",
+      "styles": [],
+      "stock_quantity": 29,
+      "description_excerpt": "Batch 001 Micro Brew is one of the most intriguing and secretive non-alcoholic beers on the market today. This exclusive brew is not only rare, but it also carries an air of mystery with its undisclosed style, making it a must-try for any adventurous palate. Only available at a select number of retailers, this intriguing beer requires an NDA signing before tasting, adding to its allure. Go Brewing has meticulously crafted this batch, and the anticipation surrounding its unique profile is palpable. With only a few hundred cans available, this"
+    },
+    {
+      "id": 40885,
+      "name": "Athletic Brewing Aftershift Zesty Session",
+      "brand": "athletic",
+      "price": "4.99",
+      "permalink": "https://market.nabeerclub.com/buy-non-alcoholic-beer/athletic-brewing-aftershift-zesty-session/",
+      "image": "https://market.nabeerclub.com/wp-content/uploads/2026/07/athleticbrewingaftershiftnon-alcoholiczestysessionnabeermarket-1.jpg",
+      "styles": [
+        "Lagers & Lights"
+      ],
+      "stock_quantity": 7,
+      "description_excerpt": "For those seeking a refreshing yet flavorful non-alcoholic beer, Athletic Brewing's Aftershift Zesty Session is an exceptional choice. Designed with a golden hue, this brew tantalizes the senses with vibrant notes of lime leaf and yuzu, creating an experience that’s both zesty and invigorating. Its light body and clean finish strike a perfect balance between slight tartness and subtle bitterness, allowing it to be a delightful reward after a long day or a crisp companion for any occasion. Crafted in collaboration with culinary luminaries such as Chris Cosentino and David"
+    }
+  ]
+}
